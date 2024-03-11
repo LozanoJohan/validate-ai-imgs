@@ -70,7 +70,7 @@ export function Div() {
                     <div className="flex flex-col md:flex-row items-center justify-center ">
                         <div className="py-10 bg-emerald-600 w-full md:w-64 rounded-t-2xl md:rounded-t-none md:rounded-tl-2xl md:rounded-bl-2xl font-medium text-xl shadow-lg shadow-black/40">
                             {!showPercent ? <button className="w-full" onClick={() => handleChoose(docus[imageIndex], 1, 0)} >Generated with AI🤖</button>
-                                : <p className="w-full text-center">{docus[imageIndex].aiVotes}</p>}
+                                : <p className="w-full text-center">{`${(100 * docus[imageIndex].aiVotes / (docus[imageIndex].aiVotes + docus[imageIndex].humanVotes)).toFixed(0)}%`}</p>}
                         </div>
 
                         <div className="relative h-fit w-fit shadow-lg shadow-black/40">
@@ -84,7 +84,7 @@ export function Div() {
 
                         <div className="py-10 bg-blue-600 w-full md:w-64 rounded-b-2xl md:rounded-b-none md:rounded-tr-2xl md:rounded-br-2xl font-medium text-xl shadow-lg shadow-black/40">
                             {!showPercent ? <button className="w-full" onClick={() => handleChoose(docus[imageIndex], 0, 1)} >Created by human👶</button>
-                                : <p className="w-full text-center">{docus[imageIndex].humanVotes}</p>}
+                                : <p className="w-full text-center">{`${(100 * docus[imageIndex].humanVotes / (docus[imageIndex].aiVotes + docus[imageIndex].humanVotes)).toFixed(0)}%`}</p>}
                         </div>
                     </div>
                 </div>
